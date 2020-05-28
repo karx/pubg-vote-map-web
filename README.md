@@ -4,9 +4,11 @@ A Web based Map drop location vote, created to be shared during livestream.
 ## Pages
 * The root folder of this repo `./` file hold the spectator view.   
 This page, resets on page refresh, and listen for all votes casts then, and vizualizes them.
+![Screenshot_2020-05-28 Pubg Map(1)](https://user-images.githubusercontent.com/7826138/83090013-4aa3e080-a0b5-11ea-92bb-c27d429cd6c7.png)
 
 * The `./vote` folder contains the voter page, where anyone can vote, these votes are all then notified to connected spectator view.   
 For current stream session removed multiple room.
+![Screenshot_2020-05-28 Pubg Map - Vote](https://user-images.githubusercontent.com/7826138/83089526-1e3b9480-a0b4-11ea-9fbd-37d6239aa562.png)
 
 ## Locations
 * prison
@@ -17,6 +19,9 @@ For current stream session removed multiple room.
 
 ## Youtube Live Chat Bot to count
 * Can be plugged with chat bot built using Youtube Live Chat APIs
+
+## MQTT Channels
+* `pubgmapv` is the main product stub
 
 
 ## Discussion, Support and Issues
