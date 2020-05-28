@@ -93,7 +93,7 @@ var ID = (function() {
         let vote_count_color_cap = vote_count > 255 ? 255 : vote_count;
             marker.style.height = `${(vote_count)}px`;
             marker.style.width = `${(vote_count)}px`;
-            marker.style.backgroundColor = `rgba(${vote_count_color_cap}, ${255 - vote_count_color_cap} 20, 0.7)`;
+            marker.style.backgroundColor = `rgba(${vote_count_color_cap}, ${255 - vote_count_color_cap}, 20, 0.7)`;
       })
       
   }
