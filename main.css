@@ -1,0 +1,47 @@
+#map {
+    margin: 0;
+    position: relative;
+    width: 800px;    
+    height: 800px;    
+    background-image: url('./assets/erangle.jpg');
+}
+h2 {
+    color: royalblue;
+}
+.marker {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(20, 200, 20, 0.4);
+    transform: translate(-50%, -50%);
+}
+#prison {
+    position: absolute;
+    top: 357px;
+    left: 611px;
+}
+#military {
+    position: absolute;
+    top: 610px;
+    left: 433px;
+}
+
+#school {
+    position: absolute;
+    top: 320px;
+    left: 410px;
+}
+
+#mylta {
+    position: absolute;
+    top: 429px;
+    left: 700px;
+}
+
+#george {
+    position: absolute;
+    top: 265px;
+    left: 174px;
+
+}
