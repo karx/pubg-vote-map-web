@@ -79,7 +79,7 @@ var ID = (function() {
     let message = new Paho.Message(loc);
     message.destinationName = "pubgmapv/vote";
     client.send(message);
-    // updateUItoThanks();  
+    updateUItoThanks();  
   }
   function updateUItoThanks() {
     document.getElementById('map').style.display = 'none';
