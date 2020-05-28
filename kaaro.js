@@ -78,16 +78,16 @@ var ID = (function() {
       if(votesArray[voteVal]) {
           votesArray[voteVal].votes++;
       }
-      updateMapBasedOnCounts();
+    //   updateMapBasedOnCounts();
   }
 
 
   function updateMapBasedOnCounts() {
-    //   requestAnimationFrame(updateMapBasedOnCounts);
+      requestAnimationFrame(updateMapBasedOnCounts);
 
       let locations = Object.keys(votesArray);
       locations.forEach(loc => {
-          console.log(loc + ' : ' + votesArray[loc].votes);
+        //   console.log(loc + ' : ' + votesArray[loc].votes);
         let marker = document.getElementById(loc);
         let vote_count = votesArray[loc].votes;
         let vote_count_color_cap = vote_count > 255 ? 255 : vote_count;
@@ -98,4 +98,4 @@ var ID = (function() {
       
   }
 
-//   updateMapBasedOnCounts();
+  updateMapBasedOnCounts();
