@@ -32,3 +32,6 @@ For general support and discussion of this project, please join the Discord serv
 To check known bugs and see planned changes and features for this project, please see the GitHub issues.
 
 Found a bug we don't already have an issue for? Please report it in a new GitHub issue with as much detail as you can!
+
+
+This app is deployed using Netlify.  [![Netlify Status](https://api.netlify.com/api/v1/badges/4459836b-fa4b-4e78-929d-7700e034e65a/deploy-status)](https://app.netlify.com/sites/mapvote/deploys)
