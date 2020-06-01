@@ -28,7 +28,7 @@ var ID = (function() {
     );
   })();
   var client = new Paho.Client(
-    "ws://api.akriya.co.in:8083/mqtt",
+    "wss://api.akriya.co.in:8084/mqtt",
     `clientId-pubg-map-vote-spec-${ID}`
   );
   
