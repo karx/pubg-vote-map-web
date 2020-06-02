@@ -91,11 +91,18 @@ var ID = (function() {
         let marker = document.getElementById(loc);
         let vote_count = votesArray[loc].votes;
         let vote_count_color_cap = vote_count > 255 ? 255 : vote_count;
-            marker.style.height = `${(vote_count)}px`;
-            marker.style.width = `${(vote_count)}px`;
-            marker.style.backgroundColor = `rgba(${vote_count_color_cap}, ${255 - vote_count_color_cap}, 20, 0.7)`;
-      })
+        marker.style.height = `${getRaduisFromCount(vote_count)}px`;
+        marker.style.width = `${getRaduisFromCount(vote_count)}px`;
+        marker.style.backgroundColor = `rgba(${vote_count_color_cap}, ${255 - vote_count_color_cap}, 20, 0.7)`;
+        marker.innerHTML = vote_count;
+        marker.style.lineHeight = `${getRaduisFromCount(vote_count)}px`; // To center the text Vertically
+      });
       
+      
+  }
+
+  function getRaduisFromCount(count) {
+    return count + 15;
   }
 
   updateMapBasedOnCounts();
