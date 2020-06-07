@@ -90,26 +90,28 @@ async function addVote(voteVal) {
     console.log(`Unknown Vote handler rcvd ${voteVal}`);
   }
 
+  updateBasedOnCounts(voteVal);
   console.log(current_ladder);
-  //   updateMapBasedOnCounts();
+
 }
 
 
-function updateMapBasedOnCounts() {
-  requestAnimationFrame(updateMapBasedOnCounts);
+function updateBasedOnCounts(voteHandle) {
+    let loc = voteHandle;
 
-  let locations = Object.keys(votesArray);
-  locations.forEach(loc => {
     let playerRef = votesArray[loc];
     let playerIndex = playerRef.playerIndex;
-    let roomIndexOfPlayer = players[playerIndex].roomIndex;
-    // moved here to optimize DOM updates. We have now, here in mem, what indivisual elements to update. I didn't want to implement a Queue for this
+    let roomIndexOfPlayer = players[playerIndex].room;
 
-    current_ladder.room[roomIndexOfPlayer].currentPlayers[loc].votes = playerRef.votes;
-    let roomToUpdate = current_ladder.room[roomIndexOfPlayer];
-    let playerToUpdate = current_ladder.room[roomIndexOfPlayer].currentPlayers[loc];
+    // console.log(`Vote cast to ${playerRef.playerIndex},  roomIndex = ${roomIndexOfPlayer}`);
+    
+    let roomToUpdate = current_ladder.rooms[roomIndexOfPlayer];
+    // console.log(`roomToUpdate = ${roomToUpdate.setIndex},${roomToUpdate.roomIndex}`);
+    
+    let playerToUpdate = current_ladder.rooms[roomIndexOfPlayer].currentPlayers[loc];
 
-  });
+    // console.log(`playerToUpdate = ${playerToUpdate.playerVoteHandle}`);
+    current_ladder.rooms[roomIndexOfPlayer].currentPlayers[loc].votes = playerRef.votes;
 
 
 }
@@ -175,9 +177,9 @@ function initPlayerDataAndAssignRoom() {
     playerData.votes = playerData.votes || 0;
     playerData.playerVoteHandle = playerData.playerVoteHandle || playerData.name;
 
-    console.log(playerData);
+    // console.log(playerData);
     current_ladder.rooms[playerData.room].currentPlayers[playerData.playerVoteHandle] = playerData;
-    playerData[index] = playerData;
+    players[index] = playerData;
 
     votesArray[playerData.playerVoteHandle] = {
       playerIndex: index,
@@ -192,6 +194,7 @@ function initLadder() {
   try{
     initPlayerDataAndAssignRoom();
     console.log(current_ladder);
+    // console.log(votesArray);
   } catch (e) {
     console.log(e)
   }
