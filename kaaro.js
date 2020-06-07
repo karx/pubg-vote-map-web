@@ -173,7 +173,7 @@ function initPlayerDataAndAssignRoom() {
     playerData.name = playerData.name || `Player - ${index}`;
     playerData.room = parseInt(index / roomSize);
     playerData.votes = playerData.votes || 0;
-    playerVoteHandle = playerData.playerVoteHandle || playerData.name;
+    playerData.playerVoteHandle = playerData.playerVoteHandle || playerData.name;
 
     console.log(playerData);
     current_ladder.rooms[playerData.room].currentPlayers[playerData.playerVoteHandle] = playerData;
