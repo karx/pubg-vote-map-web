@@ -20,6 +20,7 @@ let players = [
 let votesArray = {
 
 }
+
 var ID = (function () {
   // Math.random should be unique because of its seeding algorithm.
   // Convert it to base 36 (numbers + letters), and grab the first 9 characters
@@ -116,12 +117,6 @@ function updateBasedOnCounts(voteHandle) {
 
 }
 
-function getRaduisFromCount(count) {
-  return count + 15;
-}
-
-// updateMapBasedOnCounts();
-
 function generateRooms() {
   let playerNumber = current_ladder.playerNumber;
   let roomSize = current_ladder.roomSize || 2;
@@ -160,6 +155,7 @@ function generateRooms() {
   console.log(rooms);
   current_ladder.rooms = rooms;
   current_ladder.total_room_count = total_room_count;
+  current_ladder.total_set_count = total_number_of_sets;
 }
 function initPlayerDataAndAssignRoom() {
   let playerNumber = current_ladder.playerNumber;
@@ -194,8 +190,41 @@ function initLadder() {
   try{
     initPlayerDataAndAssignRoom();
     console.log(current_ladder);
+    generateGUIRoom();
     // console.log(votesArray);
   } catch (e) {
     console.log(e)
   }
+}
+
+function generateGUIRoom() {
+  let rooms = current_ladder.rooms;
+  let total_number_of_sets = current_ladder.total_set_count;
+
+  for(let index=0;index<total_number_of_sets;index++) {
+    let setDiv = document.createElement('div');
+    setDiv.classList.add(['set-container']);
+    setDiv.id = `set-${index}`;
+
+    document.getElementById('ladder').append(setDiv);
+  }
+  rooms.forEach(room => {
+    let roomDiv = document.createElement('div');
+    roomDiv.classList.add(['room-container']);
+    roomDiv.id = `room-${room.setIndex}-${room.roomIndex}`;
+    let rawHtml = ``;
+    Object.keys(room.currentPlayers).forEach(playa => {
+      rawHtml += `
+      <div class="player">
+        ${playa}
+      </div>
+      `
+    });
+    roomDiv.innerHTML = rawHtml;
+    document.getElementById(`set-${room.setIndex}`).append(roomDiv);
+  });
+}
+
+function updateGUIfromState() {
+  requestAnimationFrame(updateGUIfromState);
 }

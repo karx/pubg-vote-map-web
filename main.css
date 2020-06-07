@@ -1,49 +1,30 @@
-#map {
+body {
+    height: 100vh;
+    width: 100vw;
     margin: 0;
-    position: relative;
-    width: 800px;    
-    height: 800px;    
-    background-image: url('./assets/erangle.jpg');
 }
-h2 {
-    color: royalblue;
-}
-.marker {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: rgba(20, 200, 20, 0.4);
-    transform: translate(-50%, -50%);
-    text-align: center;
-    font-family: 'Bungee Inline', cursive;
-}
-#prison {
-    position: absolute;
-    top: 357px;
-    left: 611px;
-}
-#military {
-    position: absolute;
-    top: 610px;
-    left: 433px;
+.ladder-container {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+    background-color: sandybrown;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
-#school {
-    position: absolute;
-    top: 320px;
-    left: 410px;
+.set-container {
+    background-color: aquamarine;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 80%;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
-#mylta {
-    position: absolute;
-    top: 429px;
-    left: 700px;
-}
-
-#george {
-    position: absolute;
-    top: 265px;
-    left: 174px;
-
+.room-container {
+    background-color: honeydew;
+    padding: 20px;
 }
