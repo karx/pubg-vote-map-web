@@ -1,6 +1,14 @@
 ## Pubg Map Vote
 A Web based Map drop location vote, created to be shared during livestream.
 
+* Vote on: [Vote page](https://mapvote.akriya.co.in/vote)
+* Results available: [Results](https://mapvote.akriya.co.in/)
+
+```
+Results are only recorded when Results page is loaded. Reset on page refresh
+```
+
+
 ## Pages
 * The root folder of this repo `./` file hold the spectator view.   
 This page, resets on page refresh, and listen for all votes casts then, and vizualizes them.
